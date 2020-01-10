@@ -235,4 +235,31 @@ public class Utility {
 			}
 		}
 	}
+	
+// ******************************BalancedParenthesis********************************
+	
+	public static boolean isBalanced(String s)
+	{
+		char[] ch=s.toCharArray();
+		Stack<Character> st=new Stack<Character>();
+		for (int i = 0; i < ch.length; i++) 
+		{
+			if(ch[i]=='(')
+				st.push(ch[i]);
+			if(ch[i]==')')
+			{
+				if(st.isEmpty())
+				{
+					return false;
+				}
+			st.pop();
+			}
+		}
+		if(st.isEmpty())
+			return true;
+		else
+		{
+			return false;
+		}
+	}
 }
