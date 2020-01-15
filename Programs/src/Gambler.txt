@@ -1,0 +1,36 @@
+public class Gambler
+{
+	static int wins = 0;
+	static int bets = 0;
+
+	public static void gambler(int stake, int goal, int times) {
+		for (int i = 0; i <= times; i++) {
+			int cash = stake;
+			while (cash > 0 && cash < goal) {
+				bets++;
+				if (Math.random() < 0.5) {
+					cash++;
+				} else {
+					cash--;
+				}
+			}
+			if (cash == goal) {
+				wins++;
+			}
+		}
+		System.out.println();
+		System.out.println(wins + " wins of " + times);
+		System.out.println("Percent of games won = " + 100.0 * wins / times);
+		System.out.println("Avg # bets           = " + 1.0 * bets / times);
+	}
+ public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("enter the value of stake");
+	int stake=sc.nextInt();
+	System.out.println("enter the value of goals");
+	int goal=sc.nextInt();
+     	System.out.println("enter how many times you want to paly");
+     	int times=sc.nextInt();
+     	gambler(stake, goal, times);
+	}
+}
